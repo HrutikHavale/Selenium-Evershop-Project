@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite"  >
+    <test name="Test Basics 1">
+        <parameter name="browser" value="chrome-"></parameter>
+        <parameter name="itemName" value="Nike air zoom pegasus 35"></parameter>
+        <parameter name="itemSize" value="M"></parameter>
+        <parameter name="itemColour" value="Black"></parameter>
+
+
+        <classes>
+            <class name="DemoprojectTestcases.TestCase1"/>
+        </classes>
+    </test>
+
+
+
+    </suite>
