@@ -4,11 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import utilities.WaitMethods;
 
 import java.time.Duration;
 
 public class ItemPage {
     WebDriver wd ;
+    WaitMethods wait;
+
+    String visibilityItemsPathOfItempage= "//button[@type=\"button\"]";
 
     public ItemPage(WebDriver wd){
         this.wd= wd;
@@ -16,16 +20,12 @@ public class ItemPage {
     String itemSize = "//a[text()='^^']";
     String itemColour = "//a[text()='^^']";
     By AddToCartButton = By.xpath("//button[@type=\"button\"]");
-    public ItemPage WaitMethod2(){
-        FluentWait wait= new FluentWait(wd);
-        wait.withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy
-                        (By.xpath("//button[@type=\"button\"]")));
-        return this;
-    }
 
     public AddedToCart AddToCart(String itemSize, String itemColour ){
+
+        wait= new WaitMethods(wd);
+        wait.fluentWait(visibilityItemsPathOfItempage);
+
        String localItemSize =itemSize.replace("^^","itemSize");
        wd.findElement(By.xpath(localItemSize)).click();
 

@@ -3,6 +3,9 @@ package DemoProject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.ReadPropFile;
+
+import java.util.Properties;
 
 public class loginPage {
 
@@ -32,6 +35,8 @@ public class loginPage {
        wd.findElement(passwordfield).sendKeys(password);
         return this;
     }
+
+
 
     public HomePage clicksigninbtn(){
 

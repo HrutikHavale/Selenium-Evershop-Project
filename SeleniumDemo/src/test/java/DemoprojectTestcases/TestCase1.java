@@ -49,9 +49,12 @@ public class TestCase1 {
      */
       //imporved
       login.get().fillusername(UN).fillpassword(PW).clicksigninbtn()
-              .WaitMethod().ClickOnItem(itemName)
-              .WaitMethod2().AddToCart(itemSize,itemColour)
-              .WaitMethod3().ViewCart();
+              .ClickOnItem(itemName)
+              .AddToCart(itemSize,itemColour)
+              .ViewCart()
+              .ClickOnCheckout()
+              .ContinueToPayment();
+
       //Thread.sleep(4000);
   }
 

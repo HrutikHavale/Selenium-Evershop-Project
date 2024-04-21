@@ -8,26 +8,25 @@ import utilities.WaitMethods;
 
 import java.time.Duration;
 
-public class CartPage {
+public class Checkout {
     WebDriver wd ;
-
     WaitMethods wait;
 
-    String visibilityItemsPathOfCartPage= "//a[@class=\"button primary\"]";
+    String visibilityItemsPathOfCheckoutPage="//h4[contains(text(),'Shipping Address')]";
 
-    public CartPage(WebDriver wd){
+    public Checkout(WebDriver wd){
         this.wd= wd;
     }
-    By CheckOutBtn = By.xpath("//a[@class=\"button primary\"]");
+    By ViewCart = By.xpath("//a[text()='VIEW CART (1)']");
 
 
-    public Checkout ClickOnCheckout(){
+    public void ContinueToPayment(){
 
         wait=new WaitMethods(wd);
-        wait.fluentWait(visibilityItemsPathOfCartPage);
+        wait.fluentWait(visibilityItemsPathOfCheckoutPage);
 
-        wd.findElement(CheckOutBtn).click();
-        return new Checkout(wd);
+        wd.findElement(ViewCart).click();
+
     }
 }
 

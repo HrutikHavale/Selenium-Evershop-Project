@@ -10,15 +10,23 @@ import java.time.Duration;
 public class WaitMethods {
 
     WebDriver wd ;
-    //FluentWait wait = new FluentWait(wd);
 
-    public static String visibilityItemsPath ;
-    public WaitMethods fluentWait( ){
+    public WaitMethods(WebDriver wd){
+        this.wd=wd;
+    }
+
+
+
+    public void fluentWait(String visibilityItemsPath ){
         FluentWait wait= new FluentWait(wd);
-        wait.withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(5))
+        wait.withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy
-                        (By.xpath("visibilityItemsPath")));
-        return this;
+                        (By.xpath(visibilityItemsPath)));
+    }
+
+    public void implicitWait(){
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
 }
