@@ -12,7 +12,4 @@
             <class name="DemoprojectTestcases.TestCase1"/>
         </classes>
     </test>
-
-
-
     </suite>
